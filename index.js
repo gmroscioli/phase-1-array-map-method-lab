@@ -12,5 +12,23 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  // individual sentence
+  return tutorials.map(function(sentence) {
+    //individualize words
+    const words = sentence.split(" ");
+
+    //capitalize individual words and return
+    const titledWords = words.map(function(word) {
+      // get first letter and capitalize
+      const firstLetter = word.charAt(0).toUpperCase();
+      // get remaining letters for word
+      const rest = word.slice(1);
+      //return combined capitalized first letter and rest
+      return firstLetter + rest;
+    });
+
+    //joins titledWords into strings separated with spaces
+    return titledWords.join(" ");
+  });
 }
+
